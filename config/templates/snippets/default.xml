@@ -6,13 +6,13 @@
     <key>default</key>
 
     <meta>
-        <title>sulu_admin.default</title>
+        <title lang="en">Default</title>
     </meta>
 
     <properties>
         <property name="title" type="text_line" mandatory="true">
             <meta>
-                <title>sulu_admin.title</title>
+                <title lang="en">Title</title>
             </meta>
 
             <tag name="sulu.node.name"/>
@@ -20,7 +20,7 @@
 
         <property name="description" type="text_editor">
             <meta>
-                <title>sulu_admin.description</title>
+                <title lang="en">Description</title>
             </meta>
         </property>
     </properties>

@@ -2,20 +2,19 @@
 <html lang="{{ app.request.locale|split('_')[0] }}">
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     {% block meta %}
-        {% include "@SuluWebsite/Extension/seo.html.twig" with {
-            "seo": extension.seo|default([]),
-            "content": content|default([]),
-            "localizations": localizations|default([]),
-            "shadowBaseLocale": shadowBaseLocale|default(),
-        } %}
+        {{ include('@SuluWebsite/Extension/seo.html.twig', {
+            seo: extension.seo|default([]),
+            content: content|default([]),
+            localizations: localizations|default([]),
+            shadowBaseLocale: shadowBaseLocale|default(),
+        }) }}
     {% endblock %}
 
-    {% block style %}
-        {{ vite_entry_link_tags('theme') }}
-    {% endblock %}
+    {% block style %}{% endblock %}
 </head>
 <body>
     <header>
@@ -26,9 +25,12 @@
                         <a href="{{ sulu_content_root_path() }}">Homepage</a>
                     </li>
 
-                    {% for item in sulu_navigation_root_tree('main') %}
+                    {% for item in sulu_page_navigation_root_tree('main', 1, {
+                        title: 'title',
+                        url: 'url',
+                    }) %}
                         <li>
-                            <a href="{{ sulu_content_path(item.url, item.webspaceKey) }}"
+                            <a href="{{ sulu_content_path(item.url) }}"
                                title="{{ item.title }}">{{ item.title }}</a>
                         </li>
                     {% endfor %}
@@ -37,10 +39,12 @@
         {% endblock %}
     </header>
 
+    {#
     <form action="{{ path('sulu_search.website_search') }}" method="GET">
         <input name="q" type="text" placeholder="Search"/>
         <input type="submit" value="Go"/>
     </form>
+    #}
 
     <main>
         {% block content %}{% endblock %}
@@ -52,8 +56,6 @@
         {% endblock %}
     </footer>
 
-    {% block javascripts %}
-        {{ vite_entry_script_tags('app') }}
-    {% endblock %}
+    {% block javascripts %}{% endblock %}
 </body>
 </html>

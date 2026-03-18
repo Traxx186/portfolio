@@ -6,9 +6,3 @@ sulu_admin:
     lists:
         directories:
             - "%kernel.project_dir%/config/lists"
-
-sulu_core:
-    locales:
-        nl: Nederlands
-    translations:
-        - nl

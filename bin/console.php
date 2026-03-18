@@ -28,8 +28,8 @@ if (!isset($suluContext)) {
     $suluContext = Kernel::CONTEXT_ADMIN;
 }
 
-return function (array $context) use ($suluContext) {
-    $kernel = new Kernel($context['APP_ENV'], (bool) $context['APP_DEBUG'], $suluContext);
+return static function (array $context) use ($suluContext) {
+    $kernel = new Kernel($context['APP_ENV'], (bool) $context['APP_DEBUG'], $suluContext); // @phpstan-ignore-line argument.type
 
     return new Application($kernel);
 };

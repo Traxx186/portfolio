@@ -6,17 +6,17 @@
     <key>homepage</key>
 
     <view>pages/homepage</view>
-    <controller>Sulu\Bundle\WebsiteBundle\Controller\DefaultController::indexAction</controller>
+    <controller>Sulu\Content\UserInterface\Controller\Website\ContentController::indexAction</controller>
     <cacheLifetime>86400</cacheLifetime>
 
     <meta>
-        <title>sulu_admin.homepage</title>
+        <title lang="en">Homepage</title>
     </meta>
 
     <properties>
         <property name="title" type="text_line" mandatory="true">
             <meta>
-                <title>sulu_admin.title</title>
+                <title lang="en">Title</title>
             </meta>
             <params>
                 <param name="headline" value="true"/>
@@ -25,9 +25,9 @@
             <tag name="sulu.rlp.part"/>
         </property>
 
-        <property name="url" type="resource_locator" mandatory="true">
+        <property name="url" type="route" mandatory="true">
             <meta>
-                <title>sulu_admin.url</title>
+                <title lang="en">Resourcelocator</title>
             </meta>
 
             <tag name="sulu.rlp"/>
@@ -36,7 +36,6 @@
         <property name="article" type="text_editor">
             <meta>
                 <title lang="en">Article</title>
-                <title lang="nl">Artikel</title>
             </meta>
         </property>
     </properties>
