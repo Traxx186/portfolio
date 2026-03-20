@@ -1,8 +1,8 @@
 when@prod: &prod
-    sulu_http_cache:
-        proxy_client:
-            symfony:
-                enabled: true # disable this when varnish is used
+  sulu_http_cache:
+    proxy_client:
+      symfony:
+        enabled: true # disable this when varnish is used
 
     # Varnish Configuration:
     #

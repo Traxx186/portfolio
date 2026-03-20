@@ -8,7 +8,7 @@
 #   bin/console debug:router
 
 controllers:
-    resource: routing.controllers
+  resource: routing.controllers
 
 # If you have a simple login on your website activate the following routes
 # See also: https://docs.sulu.io/en/2.6/cookbook/user-context-caching.html
